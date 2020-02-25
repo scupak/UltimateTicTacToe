@@ -18,7 +18,7 @@
             <AnchorPane fx:id="TileThreeOneMicroboardOneThree" layoutX="133.0" layoutY="133.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
             <Button fx:id="TileOneThreeMicroboardOneThree" layoutX="7.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#HandleClickTileOneThreeMicroboardOneThree" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile">
                <font>
-                  <Font name="System Bold" size="30.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Button>
          </children></AnchorPane>

@@ -206,7 +206,7 @@ public class BoardController implements Initializable
     private AnchorPane TileTwoTwoMicroboardThreeOne;
     @FXML
     private AnchorPane TileThreeOneMicroboardThreeOne;
-    private Button button;
+    
 
     /**
      * Initializes the controller class.
