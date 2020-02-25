@@ -1,14 +1,130 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ultimatetictactoe.GUI.Controller.BoardController">
-    <stylesheets>
-        <URL value="@/ultimatetictactoe/GUI/CSS/Style.css"/>
-    </stylesheets>
+<AnchorPane fx:id="MacroBoard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="656.0" prefWidth="656.0" styleClass="MacroBoard" stylesheets="@../CSS/Style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ultimatetictactoe.GUI.Controller.BoardController">
+   <children>
+      <AnchorPane fx:id="MicroboardOneThree" layoutX="14.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" styleClass="MicroPane">
+         <children>
+            <AnchorPane fx:id="TileOneOneMicroboardOneThree" layoutX="7.0" layoutY="133.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileOneTwoMicroboardOneThree" layoutX="7.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileTwoOneMicroboardOneThree" layoutX="70.0" layoutY="133.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileThreeTwoMicroboardOneThree" layoutX="133.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileTwoThreeMicroboardOneThree" layoutX="70.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileThreeThreeMicroboardOneThree" layoutX="133.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileTwoTwoMicroboardOneThree" layoutX="70.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileThreeOneMicroboardOneThree" layoutX="133.0" layoutY="133.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <Button fx:id="TileOneThreeMicroboardOneThree" layoutX="7.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#HandleClickTileOneThreeMicroboardOneThree" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Button>
+         </children></AnchorPane>
+      <AnchorPane fx:id="MicroboardTwoThree" layoutX="228.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" styleClass="MicroPane">
+         <children>
+            <AnchorPane fx:id="TileOneOneMicroboardTwoThree" layoutX="7.0" layoutY="133.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileOneThreeMicroboardTwoThree" layoutX="7.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileOneTwoMicroboardTwoThree" layoutX="7.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileTwoOneMicroboardOneThree2" layoutX="70.0" layoutY="133.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileThreeTwoMicroboardTwoThree" layoutX="133.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileTwoThreeMicroboardTwoThree" layoutX="70.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileThreeThreeMicroboardTwoThree" layoutX="133.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileTwoTwoMicroboardTwoThree" layoutX="70.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileThreeOneMicroboardTwoThree" layoutX="133.0" layoutY="133.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="MicroboardThreeThree" layoutX="442.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" styleClass="MicroPane">
+         <children>
+            <AnchorPane fx:id="TileOneOneMicroboardThreeThree" layoutX="7.0" layoutY="133.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileOneThreeMicroboardThreeThree" layoutX="7.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileOneTwoMicroboardThreeThree" layoutX="7.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileTwoOneMicroboardThreeThree" layoutX="70.0" layoutY="133.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileThreeTwoMicroboardThreeThree" layoutX="133.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileTwoThreeMicroboardThreeThree" layoutX="70.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileThreeThreeMicroboardThreeThree" layoutX="133.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileTwoTwoMicroboardThreeThree" layoutX="70.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileThreeOneMicroboardThreeThree" layoutX="133.0" layoutY="133.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="MicroboardOneTwo" layoutX="14.0" layoutY="228.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" styleClass="MicroPane">
+         <children>
+            <AnchorPane fx:id="TileOneOneMicroboardOneTwo" layoutX="7.0" layoutY="133.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileOneThreeMicroboardOneTwo" layoutX="7.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileOneTwoMicroboardOneTwo" layoutX="7.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileTwoOneMicroboardOneThree1" layoutX="70.0" layoutY="133.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileThreeTwoMicroboardOneTwo" layoutX="133.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileTwoThreeMicroboardOneTwo" layoutX="70.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileThreeThreeMicroboardOneTwo" layoutX="133.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileTwoTwoMicroboardOneTwo" layoutX="70.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileThreeOneMicroboardOneTwo" layoutX="133.0" layoutY="133.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="MicroboardTwoTwo" layoutX="228.0" layoutY="228.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" styleClass="MicroPane">
+         <children>
+            <AnchorPane fx:id="TileOneOneMicroboardTwoTwo" layoutX="7.0" layoutY="133.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileOneThreeMicroboardTwoTwo" layoutX="7.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileOneTwoMicroboardTwoTwo" layoutX="7.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileTwoOneMicroboardTwoTwo" layoutX="70.0" layoutY="133.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileThreeTwoMicroboardTwoTwo" layoutX="133.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileTwoThreeMicroboardTwoTwo" layoutX="70.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileThreeThreeMicroboardTwoTwo" layoutX="133.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileTwoTwoMicroboardTwoTwo" layoutX="70.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileThreeOneMicroboardTwoTwo" layoutX="133.0" layoutY="133.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="MicroboardThreeTwo" layoutX="442.0" layoutY="228.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" styleClass="MicroPane">
+         <children>
+            <AnchorPane fx:id="TileOneOneMicroboardThreeTwo" layoutX="7.0" layoutY="133.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileOneThreeMicroboardThreeTwo" layoutX="7.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileOneTwoMicroboardThreeTwo" layoutX="7.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileTwoOneMicroboardThreeTwo" layoutX="70.0" layoutY="133.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileThreeTwoMicroboardThreeTwo" layoutX="133.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileTwoThreeMicroboardThreeTwo" layoutX="70.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileThreeThreeMicroboardThreeTwo" layoutX="133.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileTwoTwoMicroboardThreeTwo" layoutX="70.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileThreeOneMicroboardThreeTwo" layoutX="133.0" layoutY="133.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="MicroboardOneOne" layoutX="14.0" layoutY="442.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" styleClass="MicroPane">
+         <children>
+            <AnchorPane fx:id="TileOneOneMicroboardOneThree3" layoutX="7.0" layoutY="133.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileOneThreeMicroboardOneOne" layoutX="7.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileOneTwoMicroboardOneOne" layoutX="7.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileTwoOneMicroboardOneOne" layoutX="70.0" layoutY="133.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileThreeTwoMicroboardOneThree3" layoutX="133.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileTwoThreeMicroboardOneOne" layoutX="70.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileThreeThreeMicroboardOneOne" layoutX="133.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileTwoTwoMicroboardOneThree3" layoutX="70.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileThreeOneMicroboardOneOne" layoutX="133.0" layoutY="133.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="MicroboardTwoOne" layoutX="228.0" layoutY="442.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" styleClass="MicroPane">
+         <children>
+            <AnchorPane fx:id="TileOneOneMicroboardOneThree5" layoutX="7.0" layoutY="133.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileOneThreeMicroboardTwoOne" layoutX="7.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileOneTwoMicroboardTwoOne" layoutX="7.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileTwoOneMicroboardTwoOne" layoutX="70.0" layoutY="133.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileThreeTwoMicroboardOneThree5" layoutX="133.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileTwoThreeMicroboardTwoOne" layoutX="70.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileThreeThreeMicroboardTwoOne" layoutX="133.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileTwoTwoMicroboardOneThree5" layoutX="70.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileThreeOneMicroboardTwoOne" layoutX="133.0" layoutY="133.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="MicroboardThreeOne" layoutX="442.0" layoutY="442.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" styleClass="MicroPane">
+         <children>
+            <AnchorPane fx:id="TileOneOneMicroboardThreeOne" layoutX="7.0" layoutY="133.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileOneThreeMicroboardThreeOne" layoutX="7.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileOneTwoMicroboardThreeOne" layoutX="7.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileTwoOneMicroboardThreeOne" layoutX="70.0" layoutY="133.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileThreeTwoMicroboardThreeOne" layoutX="133.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileTwoThreeMicroboardThreeOne" layoutX="70.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileThreeThreeMicroboardThreeOne" layoutX="133.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileTwoTwoMicroboardThreeOne" layoutX="70.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+            <AnchorPane fx:id="TileThreeOneMicroboardThreeOne" layoutX="133.0" layoutY="133.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.6666666667" prefWidth="59.6666666667" styleClass="Tile" />
+         </children>
+      </AnchorPane>
+   </children>
 </AnchorPane>

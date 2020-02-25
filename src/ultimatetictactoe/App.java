@@ -19,8 +19,8 @@ public class App extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("ultimatetictactoe/GUI/View/MainView/fxml"));
-        
+        //Parent root = FXMLLoader.load(getClass().getResource("/ultimatetictactoe/GUI/View/MainView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/ultimatetictactoe/GUI/View/Board.fxml"));
         Scene scene = new Scene(root);
         
         stage.setScene(scene);

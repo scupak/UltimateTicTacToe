@@ -4,7 +4,34 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : 25. feb. 2020, 11.36.28
+    Created on : 25. feb. 2020, 13.09.26
     Author     : kacpe
 */
 
+.MacroBoard
+{
+    -fx-border-color: black;
+    -fx-border-width: 5;
+    -fx-border-radius: 0;
+    -fx-border-insets: 0;
+}
+
+.MicroPane
+{
+    
+    -fx-border-color: black;
+    -fx-border-width: 5;
+    -fx-border-radius: 0;
+    -fx-border-insets: 0;
+    
+}
+
+.Tile
+{
+    
+    -fx-border-color: black;
+    -fx-border-width: 5;
+    -fx-border-radius: 0;
+    -fx-border-insets: 0;
+   
+}
