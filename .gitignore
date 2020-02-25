@@ -39,3 +39,9 @@ nbdist/
 
 # End of https://www.gitignore.io/api/java,netbeans
 
+build.xml
+manifest.mf
+nbproject/build-impl.xml
+*.properties
+nbproject/jfx-impl.xml
+nbproject/project.xml
