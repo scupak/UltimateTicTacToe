@@ -6,11 +6,15 @@
 package ultimatetictactoe.GUI.Controller;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 
 /**
@@ -24,7 +28,10 @@ public class MainViewController implements Initializable {
     @FXML
     private Button button;
     @FXML
-    private Button secondButton;
+    private ChoiceBox<String> dropdownBot;
+    private ObservableList<String> list;
+    @FXML
+    private ChoiceBox<String> dropdownBot1;
     
     @FXML
     private void handleButtonAction(ActionEvent event) {
@@ -34,7 +41,16 @@ public class MainViewController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
+         ArrayList<String> categories = new ArrayList<>();
+        list = FXCollections.observableArrayList(categories);
+        
+        
+        list.add("player");
+        list.add("AI");
+        
+        dropdownBot.setItems(list);
+        dropdownBot1.setItems(list);
     }    
     
 }
