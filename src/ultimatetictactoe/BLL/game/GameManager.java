@@ -1,7 +1,7 @@
-package ultimatetictactoe.game;
+package ultimatetictactoe.BLL.game;
 
-import ultimatetictactoe.bot.IBot;
-import ultimatetictactoe.move.IMove;
+import ultimatetictactoe.BLL.bot.IBot;
+import ultimatetictactoe.BLL.move.IMove;
 
 /**
  * This is a proposed GameManager for Ultimate Tic-Tac-Toe,
