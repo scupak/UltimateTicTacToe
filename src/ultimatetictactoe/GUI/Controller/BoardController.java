@@ -37,6 +37,8 @@ import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javax.imageio.ImageIO;
+import ultimatetictactoe.Be.Currentplayer;
+import ultimatetictactoe.GUI.Model.BoardModel;
 
 /**
  * FXML Controller class
@@ -45,6 +47,8 @@ import javax.imageio.ImageIO;
  */
 public class BoardController implements Initializable
 {
+    
+    
 
     @FXML
     private AnchorPane MacroBoard;
@@ -232,18 +236,26 @@ public class BoardController implements Initializable
     private ArrayList<AnchorPane> tiles;
     private Image o;
     private Image x;
+    private Image currentMarkerImage;
+    
+    
+     BoardModel model;
 
     /**
      * Initializes the controller class.
      */
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
+        model = new BoardModel();
         
        
         try {
            
             o = new Image(new FileInputStream("src/O.png"));
+            x = new Image(new FileInputStream("src/X.png"));
         } catch (FileNotFoundException ex) {
             Logger.getLogger(BoardController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -288,11 +300,27 @@ public class BoardController implements Initializable
 
     private void Buttonclik(MouseEvent e) {
         
+        if (model.getCurrentplayer() == Currentplayer.player_O ) {
+            
+            currentMarkerImage = o;
+            model.setCurrentplayer(Currentplayer.player_X);
+            
+        }
+        else {
+        
+        
+            currentMarkerImage = x;
+            model.setCurrentplayer(Currentplayer.player_O);
+        
+        
+        }
+           
+        
        
         
       AnchorPane a = (AnchorPane)e.getSource();
-        a.setBackground(new Background(new BackgroundImage(o, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,BackgroundPosition.CENTER, new BackgroundSize(0, 0, true, true, true, true))));
-        System.out.println("shit");
+        a.setBackground(new Background(new BackgroundImage(currentMarkerImage , BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,BackgroundPosition.CENTER, new BackgroundSize(0, 0, true, true, true, true))));
+        System.out.println("fisk");
     }
     
     
