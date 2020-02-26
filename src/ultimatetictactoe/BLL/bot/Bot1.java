@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ultimatetictactoe.BLL.bot;
 
 import java.util.List;
@@ -12,6 +7,7 @@ import ultimatetictactoe.BLL.move.IMove;
 /**
  *
  * @author Zanaxdk
+ * https://github.com/scupak/UltimateTicTacToe
  */
 public class Bot1 implements IBot
 {
@@ -20,6 +16,7 @@ public class Bot1 implements IBot
     @Override
     public IMove doMove(IGameState state)
     {
+        
         List<IMove> validMoves = state.getField().getAvailableMoves();
         return validMoves.get(0);
     }
