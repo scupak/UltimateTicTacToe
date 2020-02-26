@@ -28,7 +28,7 @@ and open the template in the editor.
 
 .Tile
 {
-    -fx-background-color: transparent;
+    /*-fx-background-color: transparent;*/
     -fx-border-color: black;
     -fx-border-width: 5;
     -fx-border-radius: 0;

@@ -5,24 +5,38 @@
  */
 package ultimatetictactoe.GUI.Controller;
 
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.geometry.Side;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javax.imageio.ImageIO;
 
 /**
  * FXML Controller class
@@ -37,9 +51,9 @@ public class BoardController implements Initializable
     @FXML
     private AnchorPane MicroboardOneThree;
     @FXML
-    private AnchorPane TileOneOneMicroboardOneThree;
+    private AnchorPane TileOneOneMicroboardOneThree;        
     @FXML
-    private Button TileOneThreeMicroboardOneThree;
+    private AnchorPane TileOneThreeMicroboardOneThree;
     @FXML
     private AnchorPane TileOneTwoMicroboardOneThree;
     @FXML
@@ -214,7 +228,10 @@ public class BoardController implements Initializable
     private AnchorPane TileTwoTwoMicroboardThreeOne;
     @FXML
     private AnchorPane TileThreeOneMicroboardThreeOne;
-    
+    private ArrayList<AnchorPane> panes; 
+    private ArrayList<AnchorPane> tiles;
+    private Image o;
+    private Image x;
 
     /**
      * Initializes the controller class.
@@ -223,22 +240,60 @@ public class BoardController implements Initializable
     public void initialize(URL url, ResourceBundle rb)
     {
         
-      
-        /*
-        TileOneOneMicroboardOneThree.setBackground(new Background(new BackgroundFill(Color.rgb(251, 187, 44), new CornerRadii(365),
-         new Insets(0.0,0.0,0.0,0.0))));*/
-        
-        
-        
-        
-        
-    }    
-
-
-    @FXML
-    private void HandleClickTileOneThreeMicroboardOneThree(ActionEvent event)
-    {
        
+        try {
+           
+            o = new Image(new FileInputStream("src/O.png"));
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(BoardController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
+      
+      
+      
+        panes = new ArrayList<>();
+        tiles = new ArrayList<>();
+        
+        for (Node node : MacroBoard.getChildren()) {
+            
+            if (node instanceof AnchorPane) 
+                panes.add((AnchorPane)node);
+                
+            
+            
+            
+        }
+    
+        for (AnchorPane pane : panes) {
+            
+            for(Node node : pane.getChildren()){
+        
+                if (node instanceof AnchorPane)
+                    tiles.add((AnchorPane)node);
+            }
+           
     }
+         
+        
+         for (AnchorPane tile : tiles) {
+             
+             tile.setOnMouseClicked(e -> Buttonclik(e));
+             
+             
+              
+    }
+
+
+    }
+
+    private void Buttonclik(MouseEvent e) {
+        
+       
+        
+      AnchorPane a = (AnchorPane)e.getSource();
+        a.setBackground(new Background(new BackgroundImage(o, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,BackgroundPosition.CENTER, new BackgroundSize(0, 0, true, true, true, true))));
+        System.out.println("shit");
+    }
+    
     
 }
