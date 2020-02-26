@@ -6,14 +6,22 @@
 package ultimatetictactoe.GUI.Controller;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
 /**
@@ -207,14 +215,23 @@ public class BoardController implements Initializable
     @FXML
     private AnchorPane TileThreeOneMicroboardThreeOne;
     private Button button;
-
+    private ArrayList<AnchorPane>  allmacro;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-        // TODO
+        
+      
+        /*
+        TileOneOneMicroboardOneThree.setBackground(new Background(new BackgroundFill(Color.rgb(251, 187, 44), new CornerRadii(365),
+         new Insets(0.0,0.0,0.0,0.0))));*/
+        
+        
+        
+        
+        
     }    
 
 
