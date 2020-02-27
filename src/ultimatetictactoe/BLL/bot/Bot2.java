@@ -23,7 +23,10 @@ public class Bot2 implements IBot{
     {
         Random ran = new Random();
         List<IMove> possibleMoves = state.getField().getAvailableMoves();
+        System.out.println(possibleMoves + " PossibleMoves");
+        System.out.println(ran.nextInt(possibleMoves.size()) + " Random Move");
         return possibleMoves.get(ran.nextInt(possibleMoves.size()));
+
         
     }
 
