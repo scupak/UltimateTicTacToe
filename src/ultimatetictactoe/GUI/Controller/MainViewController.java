@@ -5,6 +5,7 @@
  */
 package ultimatetictactoe.GUI.Controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -12,10 +13,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 /**
  *
@@ -23,21 +28,16 @@ import javafx.scene.control.Label;
  */
 public class MainViewController implements Initializable {
     
-    @FXML
-    private Label label;
-    private ChoiceBox<String> dropdownBot;
     private ObservableList<String> list;
-    @FXML
-    private ChoiceBox<String> dropdownBot1;
     @FXML
     private Button playButton;
     @FXML
-    private ChoiceBox<?> dropdownBot2;
+    private ChoiceBox<String> dropdownLeft;
+    @FXML
+    private ChoiceBox<String> dropdownRight;
+    @FXML
+    private Label label;
     
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
-    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -47,16 +47,29 @@ public class MainViewController implements Initializable {
         
         
         list.add("player");
-        list.add("AI");
+        list.add("Bot1");
+        list.add("Bot2");
         
-        dropdownBot.setItems(list);
-        dropdownBot1.setItems(list);
+        dropdownLeft.setItems(list);
+        dropdownRight.setItems(list);
     }    
 
     @FXML
-    private void handlePlayButtonAction(ActionEvent event)
+    private void handlePlayButtonAction(ActionEvent event) throws IOException
     {
+            Parent root = FXMLLoader.load(getClass().getResource("/ultimatetictactoe/GUI/View/Board.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show(); 
+            close();
         
     }
     
+     private void close()
+    {
+         Stage stage = (Stage) playButton.getScene().getWindow();
+         stage.close();
+         
+    }
 }

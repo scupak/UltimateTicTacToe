@@ -54,7 +54,6 @@ public class Bot1 implements IBot
                         bestScore = score;
                         bestMove = new Move(i , j);
                         
-                    }
                     
                 }
             }  
