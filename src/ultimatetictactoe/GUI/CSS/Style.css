@@ -52,3 +52,11 @@ and open the template in the editor.
 {
      
 }
+
+.GridPane
+{
+     -fx-border-color: black;
+    -fx-border-width: 5;
+    -fx-border-radius: 0;
+    -fx-border-insets: 0;
+}
