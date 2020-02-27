@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package ultimatetictactoe.GUI.Model;
+import ultimatetictactoe.BLL.game.GameManager;
+import ultimatetictactoe.BLL.game.IGameState;
 import ultimatetictactoe.Be.Currentplayer;
 
 /**
@@ -11,21 +13,20 @@ import ultimatetictactoe.Be.Currentplayer;
  * @author anton
  */
 public class BoardModel {
-  
-   private Currentplayer currentplayer;
+   private GameManager gm;
 
-    public BoardModel() {
+    public BoardModel(IGameState gameState) {
         
-        currentplayer = Currentplayer.player_O;
+        gm = new GameManager(gameState);
+        
+        
     }
 
     public Currentplayer getCurrentplayer() {
-        return currentplayer;
+        return gm.getCurrentPlayer() == 0 ? Currentplayer.player_O : Currentplayer.player_X;
     }
 
-    public void setCurrentplayer(Currentplayer currentplayer) {
-        this.currentplayer = currentplayer;
-    }
+    
     
     
     
