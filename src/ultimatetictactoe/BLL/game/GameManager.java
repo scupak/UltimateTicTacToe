@@ -133,7 +133,7 @@ public class GameManager {
     private void updateBoard(IMove move)
     {
        //TODO: Update the board to the new state 
-        throw new UnsupportedOperationException("Not supported yet."); 
+      String playerid =  currentState.getField().getPlayerId(move.getX(), move.getY());
     }
     
     private void updateMacroboard(IMove move)

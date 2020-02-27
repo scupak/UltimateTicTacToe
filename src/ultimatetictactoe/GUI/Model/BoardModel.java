@@ -26,6 +26,10 @@ public class BoardModel {
         return gm.getCurrentPlayer() == 0 ? Currentplayer.player_O : Currentplayer.player_X;
     }
 
+    public GameManager getGm() {
+        return gm;
+    }
+
     
     
     

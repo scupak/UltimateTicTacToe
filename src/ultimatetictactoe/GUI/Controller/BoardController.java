@@ -39,6 +39,9 @@ import javafx.scene.layout.TilePane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javax.imageio.ImageIO;
+import ultimatetictactoe.BLL.game.GameState;
+import ultimatetictactoe.BLL.game.IGameState;
+import ultimatetictactoe.BLL.move.Move;
 import ultimatetictactoe.Be.Currentplayer;
 import ultimatetictactoe.GUI.Model.BoardModel;
 
@@ -59,6 +62,8 @@ public class BoardController implements Initializable
     
     
      BoardModel model;
+     IGameState gameState;
+     
 
     /**
      * Initializes the controller class.
@@ -68,15 +73,32 @@ public class BoardController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-        model = new BoardModel();
+        gameState = new GameState();
+        model = new BoardModel(gameState);
         
   
 
     }
 
-    private void Buttonclik(MouseEvent e) {
- 
-     
+    @FXML
+    private void Buttonclik(ActionEvent event) {
+        
+        Button b = (Button)event.getSource();
+        
+       boolean isSucces = model.getGm().updateGame(new Move(0, 0));
+       
+        if (isSucces) {
+            
+       
+        if(gameState.getMoveNumber() %2==0){
+            b.setText("X");
+        }
+        else{
+            b.setText("O");
+        }
+        
+             }
+  
     }
     
     

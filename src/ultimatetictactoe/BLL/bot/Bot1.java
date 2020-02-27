@@ -12,25 +12,41 @@ import ultimatetictactoe.BLL.move.Move;
  * https://github.com/scupak/UltimateTicTacToe
  * 
  * 
- */
+ */ /*
 public class Bot1 implements IBot
 {
+   
+}
     private static final String BOTNAME = "Vlad the (bagel) Inhaler";
     private IMove bestMove;
+    private String[][] simulationBoard;
     
 
     @Override
     public IMove doMove(IGameState state)
     {
-       int bestScore = -10000;
+        simulationBoard = new String[3][3];
+        
+        
+        for (int x = 0; x < state.getField().getBoard().length; x++) {
+           
+            for (int y = 0; y < state.getField().getBoard()[0].length; y++) {
+           
+            
+            
+        }
+            
+        }
+        
+        int bestScore = -10000;
        
         for (int i = 0; i < 3; i++)
         {
             for (int j = 0; j < 3; j++)
             {
-                if(board[i][j] == "-1")
+                if(state.getField().getBoard()[i][j] == "-1")
                 {
-                    board[i][j] = state; //AI
+                    state.getField().getBoard()[i][j] = state; //AI
                     int score = minimax(board, 0, true);
                     board[i][j] = "-1";
                     if(score > bestScore)
@@ -100,3 +116,4 @@ return bestScore;
 }
     
 }
+*/
