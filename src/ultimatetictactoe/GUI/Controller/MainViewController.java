@@ -25,15 +25,15 @@ public class MainViewController implements Initializable {
     
     @FXML
     private Label label;
-    @FXML
-    private Button button;
-    @FXML
     private ChoiceBox<String> dropdownBot;
     private ObservableList<String> list;
     @FXML
     private ChoiceBox<String> dropdownBot1;
-    
     @FXML
+    private Button playButton;
+    @FXML
+    private ChoiceBox<?> dropdownBot2;
+    
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
         label.setText("Hello World!");
@@ -52,5 +52,11 @@ public class MainViewController implements Initializable {
         dropdownBot.setItems(list);
         dropdownBot1.setItems(list);
     }    
+
+    @FXML
+    private void handlePlayButtonAction(ActionEvent event)
+    {
+        
+    }
     
 }
