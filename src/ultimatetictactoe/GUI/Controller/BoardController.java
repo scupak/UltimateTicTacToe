@@ -34,6 +34,8 @@ import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.TilePane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javax.imageio.ImageIO;
@@ -50,12 +52,10 @@ public class BoardController implements Initializable
     
     
 
-    private AnchorPane MacroBoard;
-    private ArrayList<AnchorPane> panes; 
-    private ArrayList<AnchorPane> tiles;
-    private Image o;
-    private Image x;
-    private Image currentMarkerImage;
+    @FXML
+    private GridPane MacroBoard;
+    private ArrayList<TilePane> panes; 
+    private ArrayList<TilePane> tiles;
     
     
      BoardModel model;
@@ -70,79 +70,13 @@ public class BoardController implements Initializable
     {
         model = new BoardModel();
         
-       
-        try {
-           
-            o = new Image(new FileInputStream("src/O.png"));
-            x = new Image(new FileInputStream("src/X.png"));
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(BoardController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-      
-      
-      
-      
-        panes = new ArrayList<>();
-        tiles = new ArrayList<>();
-        
-        for (Node node : MacroBoard.getChildren()) {
-            
-            if (node instanceof AnchorPane) 
-                panes.add((AnchorPane)node);
-                
-            
-            
-            
-        }
-    
-        for (AnchorPane pane : panes) {
-            
-            for(Node node : pane.getChildren()){
-        
-                if (node instanceof AnchorPane)
-                    tiles.add((AnchorPane)node);
-                
-                
-            }
-           
-    }
-         
-        
-         for (AnchorPane tile : tiles) {
-             
-             tile.setOnMouseClicked(e -> Buttonclik(e));
-             
-             
-             
-              
-    }
-
+  
 
     }
 
     private void Buttonclik(MouseEvent e) {
-        
-        if (model.getCurrentplayer() == Currentplayer.player_O ) {
-            
-            currentMarkerImage = o;
-            model.setCurrentplayer(Currentplayer.player_X);
-            
-        }
-        else {
-        
-        
-            currentMarkerImage = x;
-            model.setCurrentplayer(Currentplayer.player_O);
-        
-        
-        }
-           
-        
-       
-        
-      AnchorPane a = (AnchorPane)e.getSource();
-        a.setBackground(new Background(new BackgroundImage(currentMarkerImage , BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,BackgroundPosition.CENTER, new BackgroundSize(0, 0, true, true, true, true))));
-        System.out.println("fisk");
+ 
+     
     }
     
     
