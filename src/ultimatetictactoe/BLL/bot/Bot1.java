@@ -10,6 +10,8 @@ import ultimatetictactoe.BLL.move.Move;
  *
  * @author Zanaxdk
  * https://github.com/scupak/UltimateTicTacToe
+ * 
+ * 
  */
 public class Bot1 implements IBot
 {
@@ -28,8 +30,9 @@ public class Bot1 implements IBot
             {
                 if(board[i][j] == "-1")
                 {
-                    board[i][j] = state;
-                    int score = minimax(board);
+                    board[i][j] = state; //AI
+                    int score = minimax(board, 0, true);
+                    board[i][j] = "-1";
                     if(score > bestScore)
                     {
                         bestScore = score;
@@ -38,12 +41,62 @@ public class Bot1 implements IBot
                     }
                     
                 }
-            }   
+            }  
+            
         }
+        board[bestMove.i][bestMove.j] = state;
+        currentplayer = state; //human
 //        List<IMove> validMoves = state.getField().getAvailableMoves();
         
         
         return bestMove;
     }
+    
+    int[] scores ={
+    int X = 1;
+    int O = -1
+    int Tie = 0;
+    }
+    
+    public int minmax(board, int depth, boolean isMaximizing){
+    result  = checkWinner();
+    if(result != null){
+    int score = scores[result];
+    return score;
+
+    }
+    if(isMaximizing){
+        int bestScore = -10000;
+        for (int i = 0; i < 3; i++) {
+         for (int j = 0; j < 3; j++) {
+            if(board[i][j] == "-1") {
+                board[i][j] = state; //AI
+                score = minimax(board, depth +1, false);
+                board[i][j] = "-1";
+                if(score > bestScore) {
+                bestScore = score;
+                }
+                }
+            }
+        }
+        return bestScore;       
+
+    }
+    else{
+     int bestScore = 10000;
+        for (int i = 0; i < 3; i++) {
+         for (int j = 0; j < 3; j++) {
+            if(board[i][j] == "-1") {
+                board[i][j] = state; //Human
+                score = minimax(board, depth +1, true);
+                board[i][j] = "-1";
+                if(score > bestScore) {
+                bestScore = score;
+    }
+}
+}
+}
+return bestScore;
+}
     
 }
