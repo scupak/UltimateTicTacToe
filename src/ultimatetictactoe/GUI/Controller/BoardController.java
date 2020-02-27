@@ -282,6 +282,8 @@ public class BoardController implements Initializable
         
                 if (node instanceof AnchorPane)
                     tiles.add((AnchorPane)node);
+                
+                
             }
            
     }
@@ -290,6 +292,7 @@ public class BoardController implements Initializable
          for (AnchorPane tile : tiles) {
              
              tile.setOnMouseClicked(e -> Buttonclik(e));
+             
              
              
               
