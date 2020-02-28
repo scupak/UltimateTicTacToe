@@ -100,9 +100,12 @@ public class BoardController implements Initializable {
             for (int y = 0; y < 3; y++) {
 
                 TilePanes[x][y] = new TilePane();
+                
+                
 
                 createMicroboard(x, y);
                 MacroBoard.add(TilePanes[x][y], x, y);
+                
 
             }
         }
