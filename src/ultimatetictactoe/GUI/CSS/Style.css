@@ -7,7 +7,14 @@ and open the template in the editor.
     Created on : 25. feb. 2020, 13.09.26
     Author     : kacpe
 */
-
+.TilePane
+{
+    /*-fx-background-color: transparent;*/
+    -fx-border-color: black;
+    -fx-border-width: 2.5;
+    -fx-border-radius: 0;
+    -fx-border-insets: 0;
+}
 .MacroBoard
 {
     -fx-border-color: black;
@@ -26,10 +33,12 @@ and open the template in the editor.
     
 }
 
-.TileRed
+
+
+.TileBlack
 {
     /*-fx-background-color: transparent;*/
-    -fx-border-color: red;
+    -fx-border-color: black;
     -fx-border-width: 2.5;
     -fx-border-radius: 0;
     -fx-border-insets: 0;
@@ -37,10 +46,10 @@ and open the template in the editor.
    
 }
 
-.TileBlack
+.TileRed
 {
     /*-fx-background-color: transparent;*/
-    -fx-border-color: black;
+    -fx-border-color: red;
     -fx-border-width: 2.5;
     -fx-border-radius: 0;
     -fx-border-insets: 0;
