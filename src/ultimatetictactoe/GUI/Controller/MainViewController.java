@@ -47,8 +47,8 @@ public class MainViewController implements Initializable {
         
         
         list.add("player");
-        list.add("Bot1");
-        list.add("Bot2");
+        list.add("Vlad The Inhaler");
+        list.add("Hideyoshi");
         
         dropdownLeft.setItems(list);
         dropdownRight.setItems(list);
