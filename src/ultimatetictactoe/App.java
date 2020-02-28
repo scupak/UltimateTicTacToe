@@ -23,8 +23,10 @@ public class App extends Application {
         //Parent root = FXMLLoader.load(getClass().getResource("/ultimatetictactoe/GUI/View/Board.fxml"));
         Scene scene = new Scene(root);
         
+        
         stage.setScene(scene);
         System.out.println("dild");
+        stage.setTitle("Tic Tac Toe");
         stage.show();
     }
 
