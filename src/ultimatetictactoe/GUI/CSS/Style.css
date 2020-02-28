@@ -26,10 +26,21 @@ and open the template in the editor.
     
 }
 
-.Tile
+.TileRed
 {
     /*-fx-background-color: transparent;*/
     -fx-border-color: red;
+    -fx-border-width: 5;
+    -fx-border-radius: 0;
+    -fx-border-insets: 0;
+    
+   
+}
+
+.TileBlack
+{
+    /*-fx-background-color: transparent;*/
+    -fx-border-color: black;
     -fx-border-width: 5;
     -fx-border-radius: 0;
     -fx-border-insets: 0;
