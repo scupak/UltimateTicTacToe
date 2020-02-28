@@ -25,6 +25,12 @@ public class Move implements IMove
     {
         return y;
     }
+
+    @Override
+    public String toString() {
+        return "Move{" + "x=" + x + ", y=" + y + '}';
+    }
+    
 }
 
 

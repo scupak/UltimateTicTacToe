@@ -50,56 +50,67 @@ import ultimatetictactoe.GUI.Model.BoardModel;
  *
  * @author kacpe
  */
-public class BoardController implements Initializable
-{
-    
-    
+public class BoardController implements Initializable {
 
     @FXML
     private GridPane MacroBoard;
-    private ArrayList<TilePane> panes; 
+    private ArrayList<TilePane> panes;
     private ArrayList<TilePane> tiles;
-    
-    
-     BoardModel model;
-     IGameState gameState;
-     
+    private ArrayList<UTTTButton> buttons;
+
+    BoardModel model;
+    IGameState gameState;
 
     /**
      * Initializes the controller class.
      */
-    
-    
     @Override
-    public void initialize(URL url, ResourceBundle rb)
-    {
+    public void initialize(URL url, ResourceBundle rb) {
+        buttons = new ArrayList();
         gameState = new GameState();
         model = new BoardModel(gameState);
-        
-  
+
+        TilePane tpane = new TilePane();
+        MacroBoard.add(tpane, 1, 0);
+
+        for (int x = 0; x < 3; x++) {
+            for (int y = 0; y < 3; y++) {
+                UTTTButton btn = new UTTTButton();
+                btn.setPrefSize(65, 65);
+                btn.setMove(new Move(x, y));
+                btn.setOnMouseClicked(event -> {
+
+                    Buttonclik(event);
+
+                });
+                
+                buttons.add(btn);
+            }
+
+        }
+
+        tpane.getChildren().addAll(buttons);
 
     }
 
-    @FXML
-    private void Buttonclik(ActionEvent event) {
-        
-        Button b = (Button)event.getSource();
-        
-       boolean isSucces = model.getGm().updateGame(new Move(0, 0));
-       
+    private void Buttonclik(MouseEvent event) {
+
+        UTTTButton b = (UTTTButton) event.getSource();
+
+        boolean isSucces = model.getGm().updateGame(b.getMove());
+
         if (isSucces) {
+
+            if (gameState.getMoveNumber() % 2 == 0) {
+                b.setText("X");
+            } else {
+                b.setText("O");
+            }
             
-       
-        if(gameState.getMoveNumber() %2==0){
-            b.setText("X");
+            System.out.println(b.getMove());
+
         }
-        else{
-            b.setText("O");
-        }
-        
-             }
-  
+
     }
-    
-    
+
 }
