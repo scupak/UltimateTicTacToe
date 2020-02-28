@@ -39,6 +39,7 @@ import javafx.scene.layout.TilePane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javax.imageio.ImageIO;
+import ultimatetictactoe.BLL.field.IField;
 import ultimatetictactoe.BLL.game.GameState;
 import ultimatetictactoe.BLL.game.IGameState;
 import ultimatetictactoe.BLL.move.Move;
@@ -69,6 +70,7 @@ public class BoardController implements Initializable {
         gameState = new GameState();
         model = new BoardModel(gameState);
         createCells();
+        updateBoard();
 
     }
 
@@ -100,12 +102,11 @@ public class BoardController implements Initializable {
             for (int y = 0; y < 3; y++) {
 
                 TilePanes[x][y] = new TilePane();
-                
-                
+
+                TilePanes[x][y].getStyleClass().add("TileBlack");
 
                 createMicroboard(x, y);
                 MacroBoard.add(TilePanes[x][y], x, y);
-                
 
             }
         }
@@ -138,7 +139,7 @@ public class BoardController implements Initializable {
             for (int x = buttonX; x < buttonX + 3; x++) {
 
                 UTTTButton btn = new UTTTButton();
-                btn.setPrefSize(65, 65);
+                btn.setPrefSize(64, 64);
                 btn.setMove(new Move(x, y));
                 btn.setOnMouseClicked(event -> {
 
@@ -152,7 +153,25 @@ public class BoardController implements Initializable {
     }
 
     private void updateBoard() {
-        
+        highlightActiveMicroboards();
     }
 
+    private void highlightActiveMicroboards() {
+        String[][] macroBoard = gameState.getField().getMacroboard();
+
+        for (int x = 0; x < 3; x++) {
+            for (int y = 0; y < 3; y++) {
+
+                if (macroBoard[x][y].equals(IField.AVAILABLE_FIELD)) {
+                    TilePanes[x][y].getStyleClass().add("TileRed");
+                    //System.out.println("TilePane[" + x + "][" + y + "] is active");
+                } else {
+                    TilePanes[x][y].getStyleClass().clear();
+                    //System.out.println("TilePane[" + x + "][" + y + "] is not");
+                }
+
+            }
+
+        }
+    }
 }
