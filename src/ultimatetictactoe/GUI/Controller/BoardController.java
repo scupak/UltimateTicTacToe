@@ -69,27 +69,9 @@ public class BoardController implements Initializable {
         buttons = new ArrayList();
         gameState = new GameState();
         model = new BoardModel(gameState);
+        
+        createCells();
 
-        TilePane tpane = new TilePane();
-        MacroBoard.add(tpane, 1, 0);
-
-        for (int x = 0; x < 3; x++) {
-            for (int y = 0; y < 3; y++) {
-                UTTTButton btn = new UTTTButton();
-                btn.setPrefSize(65, 65);
-                btn.setMove(new Move(x, y));
-                btn.setOnMouseClicked(event -> {
-
-                    Buttonclik(event);
-
-                });
-                
-                buttons.add(btn);
-            }
-
-        }
-
-        tpane.getChildren().addAll(buttons);
 
     }
 
@@ -111,6 +93,37 @@ public class BoardController implements Initializable {
 
         }
 
+    }
+    
+    private void createCells(){
+    
+        
+        TilePane tpane = new TilePane();
+        MacroBoard.add(tpane, 1, 0);
+
+        for (int x = 0; x < 3; x++) {
+            for (int y = 0; y < 3; y++) {
+                
+                UTTTButton btn = new UTTTButton();
+                btn.setPrefSize(65, 65);
+                btn.setMove(new Move(x, y));
+                btn.setOnMouseClicked(event -> {
+
+                    Buttonclik(event);
+
+                });
+                
+                tpane.getChildren().add(btn);
+                
+               
+            }
+
+        }
+
+       
+    
+    
+    
     }
 
 }
