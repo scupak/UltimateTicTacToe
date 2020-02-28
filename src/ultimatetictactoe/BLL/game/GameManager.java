@@ -147,8 +147,8 @@ public class GameManager {
 
     private void updateMacroboard(IMove move) {
         //TODO: Update the macroboard to the new state 
-        int macroX = move.getX() / 3;
-        int macroY = move.getY() / 3;
+        int macroX = move.getX() % 3;
+        int macroY = move.getY() % 3;
 
         String[][] macroBoard = currentState.getField().getMacroboard();
 

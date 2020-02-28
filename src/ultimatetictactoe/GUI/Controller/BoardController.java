@@ -54,8 +54,7 @@ public class BoardController implements Initializable {
 
     @FXML
     private GridPane MacroBoard;
-    private ArrayList<TilePane> panes;
-    private ArrayList<TilePane> tiles;
+    private TilePane[][] TilePanes = new TilePane[3][3];
     private ArrayList<UTTTButton> buttons;
 
     BoardModel model;
@@ -69,9 +68,7 @@ public class BoardController implements Initializable {
         buttons = new ArrayList();
         gameState = new GameState();
         model = new BoardModel(gameState);
-        
         createCells();
-
 
     }
 
@@ -88,29 +85,28 @@ public class BoardController implements Initializable {
             } else {
                 b.setText("O");
             }
-            
+
+            updateBoard();
             System.out.println(b.getMove());
 
         }
 
     }
-    
-    private void createCells(){
-     ArrayList<TilePane> panes = new ArrayList<>();
-     
-     for (int x = 0; x < 3; x++) {
+
+    private void createCells() {
+        ArrayList<TilePane> panes = new ArrayList<>();
+
+        for (int x = 0; x < 3; x++) {
             for (int y = 0; y < 3; y++) {
-        
-        TilePane tpane = new TilePane();
-        MacroBoard.add(tpane, x, y);
-        panes.add(tpane);
-        
-        
-        
-        
+
+                TilePanes[x][y] = new TilePane();
+
+                createMicroboard(x, y);
+                MacroBoard.add(TilePanes[x][y], x, y);
+
             }
-     }
-/*
+        }
+        /*
         for (int x = 0; x < 9; x++) {
             for (int y = 0; y < 9; y++) {
                 
@@ -124,17 +120,36 @@ public class BoardController implements Initializable {
                 });
               
                 tpane.getChildren().add(btn);
-                  */
-                
-                
-               
+         */
+
+    }
+
+    private void createMicroboard(int microboardX, int microboardY) {
+
+        // board (9x9) coordinates for the first button in given microboard (top left)
+        int buttonX = microboardX * 3;
+        int buttonY = microboardY * 3;
+
+        // create the microboards 9 buttons
+        for (int y = buttonY; y < buttonY + 3; y++) {
+            for (int x = buttonX; x < buttonX + 3; x++) {
+
+                UTTTButton btn = new UTTTButton();
+                btn.setPrefSize(65, 65);
+                btn.setMove(new Move(x, y));
+                btn.setOnMouseClicked(event -> {
+
+                    Buttonclik(event);
+
+                });
+                TilePanes[microboardX][microboardY].getChildren().add(btn);
             }
 
         }
+    }
 
-       
-    
-    
+    private void updateBoard() {
+        
+    }
 
-
-
+}
