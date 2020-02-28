@@ -96,13 +96,23 @@ public class BoardController implements Initializable {
     }
     
     private void createCells(){
-    
+     ArrayList<TilePane> panes = new ArrayList<>();
+     
+     for (int x = 0; x < 3; x++) {
+            for (int y = 0; y < 3; y++) {
         
         TilePane tpane = new TilePane();
-        MacroBoard.add(tpane, 1, 0);
-
-        for (int x = 0; x < 3; x++) {
-            for (int y = 0; y < 3; y++) {
+        MacroBoard.add(tpane, x, y);
+        panes.add(tpane);
+        
+        
+        
+        
+            }
+     }
+/*
+        for (int x = 0; x < 9; x++) {
+            for (int y = 0; y < 9; y++) {
                 
                 UTTTButton btn = new UTTTButton();
                 btn.setPrefSize(65, 65);
@@ -112,8 +122,10 @@ public class BoardController implements Initializable {
                     Buttonclik(event);
 
                 });
-                
+              
                 tpane.getChildren().add(btn);
+                  */
+                
                 
                
             }
@@ -123,7 +135,6 @@ public class BoardController implements Initializable {
        
     
     
-    
-    }
 
-}
+
+
