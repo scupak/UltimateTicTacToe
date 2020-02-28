@@ -23,6 +23,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Side;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -60,6 +61,8 @@ public class BoardController implements Initializable {
 
     BoardModel model;
     IGameState gameState;
+    @FXML
+    private Label HeaderLabel;
 
     /**
      * Initializes the controller class.
