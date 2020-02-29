@@ -3,6 +3,7 @@ package ultimatetictactoe.BLL.game;
 import ultimatetictactoe.BLL.bot.IBot;
 import ultimatetictactoe.BLL.field.IField;
 import ultimatetictactoe.BLL.move.IMove;
+import ultimatetictactoe.BLL.move.Move;
 
 /**
  * This is a proposed GameManager for Ultimate Tic-Tac-Toe, the implementation
@@ -16,6 +17,8 @@ import ultimatetictactoe.BLL.move.IMove;
  */
 public class GameManager {
 
+    
+
     /**
      * Three different game modes.
      */
@@ -24,12 +27,41 @@ public class GameManager {
         HumanVsBot,
         BotVsBot
     }
+    
+    public enum GameOverState{
+        Active,
+        Win,
+        Tie
+    }
+    
     private final String NON_AVAILABLE_MACRO_CELL = "-";
     private final IGameState currentState;
     private int currentPlayer = 0; //player0 == 0 && player1 == 1
     private GameMode mode = GameMode.HumanVsHuman;
     private IBot bot = null;
     private IBot bot2 = null;
+    private volatile GameOverState gameOver = GameOverState.Active;
+
+    public GameMode getMode() {
+        return mode;
+    }
+
+    public void setMode(GameMode mode) {
+        this.mode = mode;
+    }
+
+    public GameOverState getGameOver() {
+        return gameOver;
+    }
+
+    public void setGameOver(GameOverState gameOver) {
+        this.gameOver = gameOver;
+    }
+    
+    public IGameState getCurrentState() {
+        return currentState;
+    }
+    
 
     /**
      * Set's the currentState so the game can begin. Game expected to be played
@@ -142,7 +174,95 @@ public class GameManager {
         //TODO: Update the board to the new state 
 
         currentState.getField().getBoard()[move.getX()][move.getY()] = "" + currentPlayer;
+        checkAndUpdateIfWin(move);
+        updateMacroboard(move);
+    }
+    
+    private void checkAndUpdateIfWin(IMove move) {
+        String[][] macroBoard = currentState.getField().getMacroboard();
+        int macroX = move.getX()/3;
+        int macroY = move.getY()/3;
 
+        if(macroBoard[macroX][macroY].equals(IField.EMPTY_FIELD) ||
+                macroBoard[macroX][macroY].equals(IField.AVAILABLE_FIELD) ) {
+
+            String[][] board = getCurrentState().getField().getBoard();
+
+            if(isWin(board,move, ""+currentPlayer))
+                macroBoard[macroX][macroY] = currentPlayer + "";
+            else if(isTie(board,move))
+                macroBoard[macroX][macroY] = "TIE";
+            
+            //Check macro win
+            if(isWin(macroBoard,new Move(macroX,macroY), ""+currentPlayer)){
+                gameOver = GameOverState.Win; 
+                System.out.println("win");
+            }
+            else if(isTie(macroBoard,new Move(macroX,macroY))){
+                gameOver = GameOverState.Tie;
+                 System.out.println("tie");
+            }
+        }
+
+    }
+    
+    private boolean isTie(String[][] board, IMove move){
+        int localX = move.getX() % 3;
+        int localY = move.getY() % 3;
+        int startX = move.getX() - (localX);
+        int startY = move.getY() - (localY);
+
+        for (int i = startX; i < startX+3; i++) {
+            for (int k = startY; k < startY+3; k++) {
+                if(board[i][k].equals(IField.AVAILABLE_FIELD) ||
+                        board[i][k].equals(IField.EMPTY_FIELD) )
+                    return false;
+            }
+        }
+        return true;
+    }
+    
+     public static boolean isWin(String[][] board, IMove move, String currentPlayer){
+        int localX = move.getX() % 3;
+        int localY = move.getY() % 3;
+        int startX = move.getX() - (localX);
+        int startY = move.getY() - (localY);
+
+        //check col
+        for (int i = startY; i < startY + 3; i++) {
+            if (!board[move.getX()][i].equals(currentPlayer))
+                break;
+            if (i == startY + 3 - 1) return true;
+        }
+
+        //check row
+        for (int i = startX; i < startX + 3; i++) {
+            if (!board[i][move.getY()].equals(currentPlayer))
+                break;
+            if (i == startX + 3 - 1) return true;
+        }
+
+        //check diagonal
+        if (localX == localY) {
+            //we're on a diagonal
+            int y = startY;
+            for (int i = startX; i < startX + 3; i++) {
+                if (!board[i][y++].equals(currentPlayer))
+                    break;
+                if (i == startX + 3 - 1) return true;
+            }
+        }
+
+        //check anti diagonal
+        if (localX + localY == 3 - 1) {
+            int less = 0;
+            for (int i = startX; i < startX + 3; i++) {
+                if (!board[i][(startY + 2)-less++].equals(currentPlayer))
+                    break;
+                if (i == startX + 3 - 1) return true;
+            }
+        }
+        return false;
     }
 
     private void updateMacroboard(IMove move) {
@@ -194,5 +314,9 @@ public class GameManager {
     public int getCurrentPlayer() {
         return currentPlayer;
     }
+
+    
+    
+    
 
 }

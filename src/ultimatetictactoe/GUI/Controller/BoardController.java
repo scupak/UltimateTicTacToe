@@ -40,6 +40,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javax.imageio.ImageIO;
 import ultimatetictactoe.BLL.field.IField;
+import ultimatetictactoe.BLL.game.GameManager;
 import ultimatetictactoe.BLL.game.GameState;
 import ultimatetictactoe.BLL.game.IGameState;
 import ultimatetictactoe.BLL.move.Move;
@@ -75,6 +76,8 @@ public class BoardController implements Initializable {
     }
 
     private void Buttonclik(MouseEvent event) {
+        
+         int currentPlayer = model.getGm().getCurrentPlayer();
 
         UTTTButton b = (UTTTButton) event.getSource();
 
@@ -89,10 +92,32 @@ public class BoardController implements Initializable {
             }
 
             updateBoard();
+            checkAndLockIfGameEnd(currentPlayer);
             System.out.println(b.getMove());
 
         }
 
+    }
+    
+    private void checkAndLockIfGameEnd(int currentPlayer) {
+        if (model.getGm().getGameOver() != GameManager.GameOverState.Active) {
+            String[][] macroboard = model.getGm().getCurrentState().getField().getMacroboard();
+            // Lock game
+            for (int i = 0; i < 3; i++) {
+                for (int k = 0; k < 3; k++) {
+                    if (macroboard[i][k].equals(IField.AVAILABLE_FIELD)) {
+                        macroboard[i][k] = IField.EMPTY_FIELD;
+                    }
+                }
+            }
+            if (model.getGm().getGameOver().equals(GameManager.GameOverState.Tie)) {
+                
+                /*TODO add text for tie*/
+            }
+            else {
+                 /*TODO add text for the player that has won*/
+            }
+        }
     }
 
     private void createCells() {
