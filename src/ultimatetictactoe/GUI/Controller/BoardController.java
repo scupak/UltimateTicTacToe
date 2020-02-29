@@ -23,6 +23,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Side;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -61,6 +62,8 @@ public class BoardController implements Initializable {
 
     BoardModel model;
     IGameState gameState;
+    @FXML
+    private Label HeaderLabel;
 
     /**
      * Initializes the controller class.
@@ -127,11 +130,13 @@ public class BoardController implements Initializable {
             for (int y = 0; y < 3; y++) {
 
                 TilePanes[x][y] = new TilePane();
+               
 
                 TilePanes[x][y].getStyleClass().add("TileBlack");
 
                 createMicroboard(x, y);
                 MacroBoard.add(TilePanes[x][y], x, y);
+                
 
             }
         }
