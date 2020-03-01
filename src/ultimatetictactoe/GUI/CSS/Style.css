@@ -90,3 +90,26 @@ and open the template in the editor.
     -fx-border-radius: 0;
     -fx-border-insets: 0;
 }
+
+.X{
+    z-index: -1;
+    position:relative;
+    -fx-background-image: url("../X.png");
+     -fx-border-color: red;
+    -fx-border-width: 1;
+    -fx-border-radius: 0;
+    -fx-border-insets: 0;
+    
+    
+}
+
+
+.O{
+    -fx-background-image: url("../image.png");
+    z-index: -1;
+    position:relative;
+    
+    
+    
+    
+}

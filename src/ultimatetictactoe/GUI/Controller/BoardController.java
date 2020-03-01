@@ -19,6 +19,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Side;
 import javafx.scene.Node;
@@ -64,12 +65,22 @@ public class BoardController implements Initializable {
     IGameState gameState;
     @FXML
     private Label HeaderLabel;
+    private Image o;
+    private Image x;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        try {
+           
+            o = new Image(new FileInputStream("src/O.png"));
+            x = new Image(new FileInputStream("src/X.png"));
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(BoardController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         buttons = new ArrayList();
         gameState = new GameState();
         model = new BoardModel(gameState);
@@ -115,10 +126,10 @@ public class BoardController implements Initializable {
             }
             if (model.getGm().getGameOver().equals(GameManager.GameOverState.Tie)) {
                 
-                /*TODO add text for tie*/
+               HeaderLabel.setText("its a tie");
             }
             else {
-                 /*TODO add text for the player that has won*/
+                 HeaderLabel.setText(model.getCurrentplayer() + "");
             }
         }
     }
@@ -184,6 +195,7 @@ public class BoardController implements Initializable {
 
     private void updateBoard() {
         highlightActiveMicroboards();
+        setvinnerformicroboard();
     }
 
     private void highlightActiveMicroboards() {
@@ -204,4 +216,54 @@ public class BoardController implements Initializable {
 
         }
     }
+    
+    private void setvinnerformicroboard(){
+        
+        
+        String[][] macroBoard = gameState.getField().getMacroboard();
+        
+        for (int x = 0; x < 3; x++) {
+            for (int y = 0; y < 3; y++) {
+                
+                
+                if (macroBoard[x][y].equals("0")) {
+                    System.out.println("fiskdild");
+                    
+                     
+                    
+                    TilePanes[x][y].getChildren().clear();
+                   
+                    
+                   
+                    TilePanes[x][y].getChildren().clear();
+                    TilePanes[x][y].setBackground(new Background(new BackgroundImage(this.o, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,BackgroundPosition.CENTER, new BackgroundSize(0, 0, true, true, true, true))));
+       
+                
+                            
+                            
+                           
+                    //System.out.println("TilePane[" + x + "][" + y + "] is active");
+                } 
+                else if(macroBoard[x][y].equals("1")){
+                    System.out.println("fiskdild1");
+                
+                    TilePanes[x][y].getChildren().clear();
+                    TilePanes[x][y].setBackground(new Background(new BackgroundImage(this.x, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,BackgroundPosition.CENTER, new BackgroundSize(0, 0, true, true, true, true))));
+       
+                
+                
+                
+                
+                }
+    
+            }
+        }
+    }
 }
+    
+                
+    
+    
+            
+        
+ 

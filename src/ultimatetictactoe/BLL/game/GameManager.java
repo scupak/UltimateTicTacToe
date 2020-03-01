@@ -215,8 +215,9 @@ public class GameManager {
         for (int i = startX; i < startX+3; i++) {
             for (int k = startY; k < startY+3; k++) {
                 if(board[i][k].equals(IField.AVAILABLE_FIELD) ||
-                        board[i][k].equals(IField.EMPTY_FIELD) )
+                        board[i][k].equals(IField.EMPTY_FIELD) || board[i][k].equals(NON_AVAILABLE_MACRO_CELL) ){
                     return false;
+                }
             }
         }
         return true;
