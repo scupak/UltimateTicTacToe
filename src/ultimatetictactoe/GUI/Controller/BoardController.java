@@ -41,10 +41,12 @@ import javafx.scene.layout.TilePane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javax.imageio.ImageIO;
+import ultimatetictactoe.BLL.bot.IBot;
 import ultimatetictactoe.BLL.field.IField;
 import ultimatetictactoe.BLL.game.GameManager;
 import ultimatetictactoe.BLL.game.GameState;
 import ultimatetictactoe.BLL.game.IGameState;
+import ultimatetictactoe.BLL.move.IMove;
 import ultimatetictactoe.BLL.move.Move;
 import ultimatetictactoe.Be.Currentplayer;
 import ultimatetictactoe.GUI.Model.BoardModel;
@@ -69,31 +71,31 @@ public class BoardController implements Initializable {
     private Label HeaderLabel;
     private Image o;
     private Image x;
+    boolean isHumanVsBot;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        gameState = new GameState();
         try {
-           
+
             o = new Image(new FileInputStream("src/O.png"));
             x = new Image(new FileInputStream("src/X.png"));
         } catch (FileNotFoundException ex) {
             Logger.getLogger(BoardController.class.getName()).log(Level.SEVERE, null, ex);
         }
-      
         buttons = new ArrayList();
-        gameState = new GameState();
-        model = new BoardModel(gameState);
+
         createCells();
         updateBoard();
 
     }
 
     private void Buttonclik(MouseEvent event) {
-        
-         int currentPlayer = model.getGm().getCurrentPlayer();
+
+        int currentPlayer = model.getGm().getCurrentPlayer();
 
         UTTTButton b = (UTTTButton) event.getSource();
 
@@ -109,12 +111,38 @@ public class BoardController implements Initializable {
 
             updateBoard();
             checkAndLockIfGameEnd(currentPlayer);
-            System.out.println(b.getMove());
+            System.out.println(b.getMove().getX() +"         " +b.getMove().getY() );
+
+            if (isHumanVsBot) {
+
+                
+                Boolean valid = model.getGm().updateGame();
+                if (valid) {
+                    
+                   IMove lastmove = model.getGm().getBot().getLastMove();
+                    
+
+                    if (gameState.getMoveNumber() % 2 == 0) {
+                        System.out.println("Dildfiskdildfiskhest");
+                         UTTTButton botbutton = getbuttonfrommove(lastmove);
+  
+                        
+                        botbutton.setText("X");
+                    } else {
+                        UTTTButton botbutton = getbuttonfrommove(lastmove);
+                        botbutton.setText("O");
+                    }
+                    currentPlayer = model.getGm().getCurrentPlayer();
+                    checkAndLockIfGameEnd(currentPlayer);
+                    updateBoard();
+
+                }
+
+            }
 
         }
-
     }
-    
+
     private void checkAndLockIfGameEnd(int currentPlayer) {
         if (model.getGm().getGameOver() != GameManager.GameOverState.Active) {
             String[][] macroboard = model.getGm().getCurrentState().getField().getMacroboard();
@@ -127,11 +155,10 @@ public class BoardController implements Initializable {
                 }
             }
             if (model.getGm().getGameOver().equals(GameManager.GameOverState.Tie)) {
-                
-               HeaderLabel.setText("its a tie");
-            }
-            else {
-                 HeaderLabel.setText(model.getCurrentplayer() + "");
+
+                HeaderLabel.setText("its a tie");
+            } else {
+                HeaderLabel.setText(model.getCurrentplayer() + "");
             }
         }
     }
@@ -143,13 +170,11 @@ public class BoardController implements Initializable {
             for (int y = 0; y < 3; y++) {
 
                 TilePanes[x][y] = new TilePane();
-               
 
                 TilePanes[x][y].getStyleClass().add("TileBlack");
 
                 createMicroboard(x, y);
                 MacroBoard.add(TilePanes[x][y], x, y);
-                
 
             }
         }
@@ -189,6 +214,7 @@ public class BoardController implements Initializable {
                     Buttonclik(event);
 
                 });
+                buttons.add(btn);
                 TilePanes[microboardX][microboardY].getChildren().add(btn);
             }
 
@@ -218,54 +244,91 @@ public class BoardController implements Initializable {
 
         }
     }
-    
-    private void setvinnerformicroboard(){
-        
-        
+
+    private void setvinnerformicroboard() {
+
         String[][] macroBoard = gameState.getField().getMacroboard();
-        
+
         for (int x = 0; x < 3; x++) {
             for (int y = 0; y < 3; y++) {
-                
-                
+
                 if (macroBoard[x][y].equals("0")) {
                     System.out.println("fiskdild");
-                    
-                     
-                    
+
                     TilePanes[x][y].getChildren().clear();
-                   
-                    
-                   
+
                     TilePanes[x][y].getChildren().clear();
-                    TilePanes[x][y].setBackground(new Background(new BackgroundImage(this.o, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,BackgroundPosition.CENTER, new BackgroundSize(0, 0, true, true, true, true))));
-       
-                
-                            
-                            
-                           
+                    TilePanes[x][y].setBackground(new Background(new BackgroundImage(this.o, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(0, 0, true, true, true, true))));
+
                     //System.out.println("TilePane[" + x + "][" + y + "] is active");
-                } 
-                else if(macroBoard[x][y].equals("1")){
+                } else if (macroBoard[x][y].equals("1")) {
                     System.out.println("fiskdild1");
-                
+
                     TilePanes[x][y].getChildren().clear();
-                    TilePanes[x][y].setBackground(new Background(new BackgroundImage(this.x, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,BackgroundPosition.CENTER, new BackgroundSize(0, 0, true, true, true, true))));
-       
-                
-                
-                
-                
+                    TilePanes[x][y].setBackground(new Background(new BackgroundImage(this.x, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(0, 0, true, true, true, true))));
+
                 }
-    
+
             }
         }
     }
-}
     
-                
-    
-    
-            
+    public void setxy(){
         
- 
+        
+    
+    
+    
+    
+    }
+
+    public void setGame() {
+
+        gameState = new GameState();
+
+        model = new BoardModel(gameState);
+
+        isHumanVsBot = false;
+
+    }
+
+    public void setGame(IBot bot1) {
+
+        gameState = new GameState();
+
+        model = new BoardModel(gameState, bot1);
+
+        System.out.println("player vs bot");
+
+        isHumanVsBot = true;
+
+    }
+
+    private UTTTButton getbuttonfrommove(IMove lastmove) {
+        
+        System.out.println("bliver den kaldt???");
+        
+        System.out.println(buttons.size());
+        
+        for (UTTTButton button : buttons) {
+            
+            System.out.println("ultimatetictactoe.GUI.Controller.BoardController.getbuttonfrommove()");
+            
+            if (button.getMove().getX() == lastmove.getX() && button.getMove().getY() == lastmove.getY() ) {
+                
+                
+                 System.out.println("X = " +lastmove.getX() +  "                       " + "                     " + " Y = " + lastmove.getY() + "buttonxy");
+                
+                System.out.println("X = " +button.getMove().getX() +  "                       " + "                     " + " Y = " + button.getMove().getY() + "buttonxy");
+                
+                return button;
+                
+            }
+            
+            
+        }
+         return null;
+        
+    }
+
+}

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package ultimatetictactoe.GUI.Model;
+import ultimatetictactoe.BLL.bot.IBot;
 import ultimatetictactoe.BLL.game.GameManager;
 import ultimatetictactoe.BLL.game.IGameState;
 import ultimatetictactoe.Be.Currentplayer;
@@ -18,6 +19,13 @@ public class BoardModel {
     public BoardModel(IGameState gameState) {
         
         gm = new GameManager(gameState);
+        
+        
+    }
+    
+    public BoardModel(IGameState gameState, IBot bot1) {
+        
+        gm = new GameManager(gameState ,bot1);
         
         
     }

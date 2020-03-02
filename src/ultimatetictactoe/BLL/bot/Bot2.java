@@ -16,6 +16,7 @@ import ultimatetictactoe.BLL.move.IMove;
  */
 public class Bot2 implements IBot{
     private static final String BOTNAME = "Hideyoshi";
+    private IMove latmove;
 
 
     @Override
@@ -25,9 +26,15 @@ public class Bot2 implements IBot{
         List<IMove> possibleMoves = state.getField().getAvailableMoves();
         System.out.println(possibleMoves + " PossibleMoves");
         System.out.println(ran.nextInt(possibleMoves.size()) + " Random Move");
-        return possibleMoves.get(ran.nextInt(possibleMoves.size()));
+        latmove = possibleMoves.get(ran.nextInt(possibleMoves.size()));
+        return latmove;
 
         
+    }
+
+    @Override
+    public IMove getLastMove() {
+       return latmove;
     }
 
     
