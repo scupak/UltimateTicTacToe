@@ -73,4 +73,16 @@ public class MainViewController implements Initializable {
          stage.close();
          
     }
+
+    public String getDropdownLeft()
+    {
+        return dropdownLeft.getSelectionModel().getSelectedItem();
+    }
+
+    public String getDropdownRight()
+    {
+        return dropdownRight.getSelectionModel().getSelectedItem();
+    }
+     
+     
 }

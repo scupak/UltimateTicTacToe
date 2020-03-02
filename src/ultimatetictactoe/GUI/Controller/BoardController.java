@@ -48,6 +48,7 @@ import ultimatetictactoe.BLL.game.IGameState;
 import ultimatetictactoe.BLL.move.Move;
 import ultimatetictactoe.Be.Currentplayer;
 import ultimatetictactoe.GUI.Model.BoardModel;
+import ultimatetictactoe.GUI.Controller.MainViewController;
 
 /**
  * FXML Controller class
@@ -63,6 +64,7 @@ public class BoardController implements Initializable {
 
     BoardModel model;
     IGameState gameState;
+    MainViewController mainVC;
     @FXML
     private Label HeaderLabel;
     private Image o;
@@ -80,7 +82,7 @@ public class BoardController implements Initializable {
         } catch (FileNotFoundException ex) {
             Logger.getLogger(BoardController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+      
         buttons = new ArrayList();
         gameState = new GameState();
         model = new BoardModel(gameState);
