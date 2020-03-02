@@ -41,6 +41,7 @@ public class GameManager {
     private IBot bot = null;
     private IBot bot2 = null;
     private volatile GameOverState gameOver = GameOverState.Active;
+    
 
     public GameMode getMode() {
         return mode;
@@ -143,6 +144,9 @@ public class GameManager {
             assert (bot != null);
 
             IMove botMove = bot.doMove(currentState);
+            
+            System.out.println(botMove + "gamemanger botmove");
+            System.out.println(botMove.getX() + "     shit     "+ botMove.getY() + "gamemanger botmove");
 
             //Be aware that your bots might perform illegal moves.
             return updateGame(botMove);
@@ -316,6 +320,17 @@ public class GameManager {
         return currentPlayer;
     }
 
+    public IBot getBot() {
+        return bot;
+    }
+
+    public IBot getBot2() {
+        return bot2;
+    }
+
+    
+    
+    
     
     
     
