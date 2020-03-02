@@ -23,6 +23,7 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import ultimatetictactoe.BLL.bot.IBot;
 import ultimatetictactoe.BLL.bot.Bot2;
+import ultimatetictactoe.BLL.bot.RankedChoiceBot;
 
 /**
  *
@@ -53,6 +54,7 @@ public class MainViewController implements Initializable {
         list.add("human");
         list.add("Vlad The Inhaler");
         list.add("Hideyoshi");
+        list.add("RankedChoiceBot");
         
         dropdownLeft.setItems(list);
         dropdownRight.setItems(list);
@@ -89,6 +91,16 @@ public class MainViewController implements Initializable {
                 
                 IBot bot = new Bot2();
                 controller.setGame(bot);
+            
+            
+            
+            
+            }
+            else if(dropdownLeft.getSelectionModel().getSelectedItem().equals("human") && dropdownRight.getSelectionModel().getSelectedItem().equals("RankedChoiceBot")){
+                
+                IBot bot = new RankedChoiceBot();
+                controller.setGame(bot);
+                System.out.println("RankedChoiceBot");
             
             
             
