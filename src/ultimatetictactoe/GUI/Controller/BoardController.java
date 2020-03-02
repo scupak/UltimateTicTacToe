@@ -66,12 +66,12 @@ public class BoardController implements Initializable {
 
     BoardModel model;
     IGameState gameState;
+    MainViewController mainVC;
     @FXML
     private Label HeaderLabel;
     private Image o;
     private Image x;
     boolean isHumanVsBot;
-    private String headertext;
 
     /**
      * Initializes the controller class.
@@ -87,10 +87,6 @@ public class BoardController implements Initializable {
             Logger.getLogger(BoardController.class.getName()).log(Level.SEVERE, null, ex);
         }
         buttons = new ArrayList();
-        
-        HeaderLabel.setText(headertext);
-        
-        System.out.println(headertext + "headertxt");
 
         createCells();
         updateBoard();
@@ -160,16 +156,14 @@ public class BoardController implements Initializable {
             }
             if (model.getGm().getGameOver().equals(GameManager.GameOverState.Tie)) {
 
-                HeaderLabel.setText("it's a tie");
+                HeaderLabel.setText("its a tie");
             } else {
-                HeaderLabel.setText(model.getCurrentplayer() + " wins");
+                HeaderLabel.setText(model.getCurrentplayer() + "");
             }
         }
     }
 
     private void createCells() {
-        
-         System.out.println(headertext + "headertxt");
         ArrayList<TilePane> panes = new ArrayList<>();
 
         for (int x = 0; x < 3; x++) {
@@ -295,7 +289,6 @@ public class BoardController implements Initializable {
         model = new BoardModel(gameState);
 
         isHumanVsBot = false;
-       
 
     }
 
@@ -338,8 +331,4 @@ public class BoardController implements Initializable {
         
     }
 
-    public void setHeaderLabel(String s)
-    {
-        this.HeaderLabel.setText(s);
-    }
 }
