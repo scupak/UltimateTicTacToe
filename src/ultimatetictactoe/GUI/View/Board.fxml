@@ -5,8 +5,8 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
+
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="650.0" styleClass="AnchorPane" stylesheets="@../CSS/Style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ultimatetictactoe.GUI.Controller.BoardController">
    <children>
@@ -22,14 +22,10 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
       </GridPane>
-      <StackPane layoutX="5.0" layoutY="4.0" prefHeight="82.0" prefWidth="650.0">
-         <children>
-            <Label fx:id="HeaderLabel" styleClass="Label" text="Human vs Human">
-               <font>
-                  <Font size="36.0" />
-               </font>
-            </Label>
-         </children>
-      </StackPane>
+      <Label fx:id="HeaderLabel" layoutX="183.0" layoutY="33.0" styleClass="Label" text="Human vs Human">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

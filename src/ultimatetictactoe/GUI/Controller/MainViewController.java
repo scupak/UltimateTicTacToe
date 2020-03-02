@@ -41,7 +41,7 @@ public class MainViewController implements Initializable {
     private Label label;
     
     private IBot bot1;
-   
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -50,8 +50,8 @@ public class MainViewController implements Initializable {
         list = FXCollections.observableArrayList(categories);
         
         
-        list.add("Human");
-        list.add("Vlad the Inhaler");
+        list.add("human");
+        list.add("Vlad The Inhaler");
         list.add("Hideyoshi");
         
         dropdownLeft.setItems(list);
@@ -72,15 +72,12 @@ public class MainViewController implements Initializable {
             
             if (dropdownLeft.getSelectionModel().getSelectedItem().equals("human") && dropdownRight.getSelectionModel().getSelectedItem().equals("human")) {
                 
-               controller.setHeaderLabel("Human VS Human");
-             
-               controller.setGame();
+                controller.setGame();
             
         }
             else if(dropdownLeft.getSelectionModel().getSelectedItem().equals("human") && dropdownRight.getSelectionModel().getSelectedItem().equals("Vlad The Inhaler")){
                 
                 IBot bot = new Bot2();
-                controller.setHeaderLabel("Human VS Vlad the Inhaler");
                 
                 controller.setGame(bot);
             
@@ -91,8 +88,6 @@ public class MainViewController implements Initializable {
             else if(dropdownLeft.getSelectionModel().getSelectedItem().equals("human") && dropdownRight.getSelectionModel().getSelectedItem().equals("Hideyoshi")){
                 
                 IBot bot = new Bot2();
-                controller.setHeaderLabel("Human VS Hideyoshi");
-                
                 controller.setGame(bot);
             
             
@@ -113,8 +108,15 @@ public class MainViewController implements Initializable {
          
     }
 
-  
+    public String getDropdownLeft()
+    {
+        return dropdownLeft.getSelectionModel().getSelectedItem();
+    }
+
+    public String getDropdownRight()
+    {
+        return dropdownRight.getSelectionModel().getSelectedItem();
+    }
      
      
- 
 }
