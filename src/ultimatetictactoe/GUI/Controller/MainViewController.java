@@ -74,13 +74,14 @@ public class MainViewController implements Initializable {
             
             if (dropdownLeft.getSelectionModel().getSelectedItem().equals("human") && dropdownRight.getSelectionModel().getSelectedItem().equals("human")) {
                 
+                controller.setHeaderLabel("Human VS Human");
                 controller.setGame();
             
         }
             else if(dropdownLeft.getSelectionModel().getSelectedItem().equals("human") && dropdownRight.getSelectionModel().getSelectedItem().equals("Vlad The Inhaler")){
                 
                 IBot bot = new Bot2();
-                
+                controller.setHeaderLabel("Human VS Vlad the Inhaler");
                 controller.setGame(bot);
             
             
@@ -90,6 +91,7 @@ public class MainViewController implements Initializable {
             else if(dropdownLeft.getSelectionModel().getSelectedItem().equals("human") && dropdownRight.getSelectionModel().getSelectedItem().equals("Hideyoshi")){
                 
                 IBot bot = new Bot2();
+                controller.setHeaderLabel("Human VS Hideyoshi");
                 controller.setGame(bot);
             
             

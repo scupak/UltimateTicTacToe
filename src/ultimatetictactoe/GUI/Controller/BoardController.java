@@ -156,9 +156,9 @@ public class BoardController implements Initializable {
             }
             if (model.getGm().getGameOver().equals(GameManager.GameOverState.Tie)) {
 
-                HeaderLabel.setText("its a tie");
+                HeaderLabel.setText("it's a Tie");
             } else {
-                HeaderLabel.setText(model.getCurrentplayer() + "");
+                HeaderLabel.setText(model.getCurrentplayer() + " Wins");
             }
         }
     }
@@ -329,6 +329,11 @@ public class BoardController implements Initializable {
         }
          return null;
         
+    }
+    
+    public void setHeaderLabel(String s)
+    {
+        this.HeaderLabel.setText(s);
     }
 
 }
