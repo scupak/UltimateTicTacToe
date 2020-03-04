@@ -25,7 +25,6 @@ public class App extends Application {
         
         
         stage.setScene(scene);
-        System.out.println("dild");
         stage.setTitle("Tic Tac Toe");
         stage.show();
     }
