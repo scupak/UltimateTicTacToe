@@ -145,8 +145,7 @@ public class GameManager {
 
             IMove botMove = bot.doMove(currentState);
             
-            System.out.println(botMove + "gamemanger botmove");
-            System.out.println(botMove.getX() + "     shit     "+ botMove.getY() + "gamemanger botmove");
+            
 
             //Be aware that your bots might perform illegal moves.
             return updateGame(botMove);
