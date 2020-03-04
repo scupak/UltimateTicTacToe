@@ -22,6 +22,8 @@ public interface IBot {
     
     
    public IMove getLastMove();
+   
+   public String getBotName();
     
 
     

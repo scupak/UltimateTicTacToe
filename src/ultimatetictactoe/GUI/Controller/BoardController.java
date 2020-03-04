@@ -123,7 +123,7 @@ public class BoardController implements Initializable {
                     
 
                     if (gameState.getMoveNumber() % 2 == 0) {
-                        System.out.println("Dildfiskdildfiskhest");
+                        
                          UTTTButton botbutton = getbuttonfrommove(lastmove);
   
                         
@@ -253,7 +253,7 @@ public class BoardController implements Initializable {
             for (int y = 0; y < 3; y++) {
 
                 if (macroBoard[x][y].equals("0")) {
-                    System.out.println("fiskdild");
+                    
 
                     TilePanes[x][y].getChildren().clear();
 
@@ -262,7 +262,7 @@ public class BoardController implements Initializable {
 
                     //System.out.println("TilePane[" + x + "][" + y + "] is active");
                 } else if (macroBoard[x][y].equals("1")) {
-                    System.out.println("fiskdild1");
+                    
 
                     TilePanes[x][y].getChildren().clear();
                     TilePanes[x][y].setBackground(new Background(new BackgroundImage(this.x, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(0, 0, true, true, true, true))));
@@ -306,13 +306,13 @@ public class BoardController implements Initializable {
 
     private UTTTButton getbuttonfrommove(IMove lastmove) {
         
-        System.out.println("bliver den kaldt???");
+        
         
         System.out.println(buttons.size());
         
         for (UTTTButton button : buttons) {
             
-            System.out.println("ultimatetictactoe.GUI.Controller.BoardController.getbuttonfrommove()");
+            
             
             if (button.getMove().getX() == lastmove.getX() && button.getMove().getY() == lastmove.getY() ) {
                 
