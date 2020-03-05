@@ -52,9 +52,8 @@ public class MainViewController implements Initializable {
         
         
         list.add("human");
-        list.add("Vlad The Inhaler");
         list.add("Hideyoshi");
-        list.add("RankedChoiceBot");
+        list.add("The Borg");
         
         dropdownLeft.setItems(list);
         dropdownRight.setItems(list);
@@ -77,12 +76,8 @@ public class MainViewController implements Initializable {
                 controller.setHeaderLabel("Human VS Human");
                 controller.setGame();
             
-        }
-            else if(dropdownLeft.getSelectionModel().getSelectedItem().equals("human") && dropdownRight.getSelectionModel().getSelectedItem().equals("Vlad The Inhaler")){
-                
-                IBot bot = new Bot2();
-                controller.setHeaderLabel("Human VS Vlad the Inhaler");
-                controller.setGame(bot);
+        
+            
             
             
             
@@ -98,11 +93,12 @@ public class MainViewController implements Initializable {
             
             
             }
-            else if(dropdownLeft.getSelectionModel().getSelectedItem().equals("human") && dropdownRight.getSelectionModel().getSelectedItem().equals("RankedChoiceBot")){
+            else if(dropdownLeft.getSelectionModel().getSelectedItem().equals("human") && dropdownRight.getSelectionModel().getSelectedItem().equals("The Borg")){
                 
                 IBot bot = new RankedChoiceBot();
                 controller.setGame(bot);
-                System.out.println("RankedChoiceBot");
+                controller.setHeaderLabel("Human VS The Borg");
+               
             
             
             

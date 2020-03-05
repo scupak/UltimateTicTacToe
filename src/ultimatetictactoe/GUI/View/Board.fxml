@@ -21,7 +21,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
       </GridPane>
-      <Label fx:id="HeaderLabel" layoutX="173.0" layoutY="31.0" prefHeight="54.0" prefWidth="309.0" styleClass="Label" text="Human vs Human" AnchorPane.leftAnchor="173.0" AnchorPane.rightAnchor="172.39999999999998">
+      <Label fx:id="HeaderLabel" layoutX="188.0" layoutY="31.0" prefHeight="54.0" prefWidth="432.0" styleClass="Label" text="Human vs Human" AnchorPane.leftAnchor="183.0" AnchorPane.rightAnchor="35.0">
          <font>
             <Font size="36.0" />
          </font>
